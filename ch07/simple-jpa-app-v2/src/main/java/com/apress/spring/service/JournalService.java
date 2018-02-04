@@ -1,6 +1,7 @@
 package com.apress.spring.service;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -29,6 +30,14 @@ public class JournalService {
 
     public List<Journal> findAll() {
         return repo.findAll();
+    }
+
+    public List<Journal> findByCustomQuery(String word) {
+        return repo.findByCustomQuery(word);
+    }
+
+    public List<Journal> findByCreatedAfter(Date date) {
+        return repo.findByCreatedAfter(date);
     }
 
 }

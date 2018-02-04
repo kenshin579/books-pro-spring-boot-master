@@ -30,5 +30,6 @@ public class JournalService {
     public List<Journal> findAll() {
         return repo.findAll();
     }
+    
 
 }

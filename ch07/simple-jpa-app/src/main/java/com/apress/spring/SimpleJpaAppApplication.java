@@ -26,6 +26,7 @@ public class SimpleJpaAppApplication {
             service.insertData();
             log.info("@@ findAll() 호출...");
             service.findAll().forEach(entry -> log.info(entry.toString()));
+            
         };
     }
 }
