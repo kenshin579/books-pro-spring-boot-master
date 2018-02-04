@@ -10,6 +10,9 @@
 # Log file
 *.log
 
+# Systems files
+.DS_Store
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
