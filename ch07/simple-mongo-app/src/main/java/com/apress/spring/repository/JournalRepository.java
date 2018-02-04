@@ -8,6 +8,6 @@ import com.apress.spring.domain.Journal;
 
 public interface JournalRepository extends MongoRepository<Journal, String> {
 
-	public List<Journal> findByTitleLike(String word);
-	
+    public List<Journal> findByTitleLike(String word);
+
 }

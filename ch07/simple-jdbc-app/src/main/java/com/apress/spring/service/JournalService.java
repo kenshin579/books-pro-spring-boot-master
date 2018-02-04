@@ -1,16 +1,15 @@
 package com.apress.spring.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.apress.spring.domain.Journal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import com.apress.spring.domain.Journal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class JournalService {
@@ -34,8 +33,8 @@ public class JournalService {
     public List<Journal> findAll() {
         List<Journal> entries = new ArrayList<>();
         jdbcTemplate.query("SELECT * FROM JOURNAL",
-                    new Object[]{},
-                    (rs,row) -> new Journal(rs.getLong("id"), rs.getString("title"), rs.getString("summary"),new Date(rs.getTimestamp("created").getTime())))
+                new Object[]{},
+                (rs, row) -> new Journal(rs.getLong("id"), rs.getString("title"), rs.getString("summary"), new Date(rs.getTimestamp("created").getTime())))
                 .forEach(entry -> entries.add(entry));
         return entries;
     }

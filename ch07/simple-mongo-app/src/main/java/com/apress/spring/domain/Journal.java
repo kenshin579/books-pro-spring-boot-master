@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Transient;
 
 public class Journal {
 
-	@Id
+    @Id
     private String id;
     private String title;
     private Date created;
@@ -18,23 +18,24 @@ public class Journal {
     @Transient
     private SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 
-    public Journal(String title, String summary, String date) throws ParseException{
+    public Journal(String title, String summary, String date) throws ParseException {
         this.title = title;
         this.summary = summary;
         this.created = format.parse(date);
     }
 
-    Journal() {}
+    Journal() {
+    }
 
     public String getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
+    public String getTitle() {
         return title;
     }
 

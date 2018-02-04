@@ -25,10 +25,10 @@ public class SimpleMongoAppApplication {
             repo.deleteAll();
 
             log.info("> 데이터를 새로 생성...");
-            repo.save(new Journal("스프링 부트 입문","오늘부터 스프링 부트 공부하기 시작했다","01/01/2016"));
-            repo.save(new Journal("간단한 스프링 부트 프로젝트","스프링 부트 프로젝트를 처음 만들어 보았다","01/02/2016"));
-            repo.save(new Journal("스프링 부트 해부","스프링 부트를 자세히 살펴보았다","02/01/2016"));
-            repo.save(new Journal("스프링 부트 클라우드","클라우드 파운드리를 응용한 스프링 부트를 공부했다","03/01/2016"));
+            repo.save(new Journal("스프링 부트 입문", "오늘부터 스프링 부트 공부하기 시작했다", "01/01/2016"));
+            repo.save(new Journal("간단한 스프링 부트 프로젝트", "스프링 부트 프로젝트를 처음 만들어 보았다", "01/02/2016"));
+            repo.save(new Journal("스프링 부트 해부", "스프링 부트를 자세히 살펴보았다", "02/01/2016"));
+            repo.save(new Journal("스프링 부트 클라우드", "클라우드 파운드리를 응용한 스프링 부트를 공부했다", "03/01/2016"));
 
             log.info("> 전체 데이터 조회...");
             repo.findAll().forEach(entry -> log.info(entry.toString()));

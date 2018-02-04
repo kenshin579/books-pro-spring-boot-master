@@ -19,7 +19,8 @@ public class Journal {
         this.created = date;
     }
 
-    Journal() {}
+    Journal() {
+    }
 
     public Long getId() {
         return id;
