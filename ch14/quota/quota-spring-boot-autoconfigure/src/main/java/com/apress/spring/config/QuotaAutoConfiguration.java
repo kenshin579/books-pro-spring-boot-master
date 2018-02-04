@@ -12,11 +12,11 @@ import com.apress.spring.heatlh.QuotaHealthIndicator;
 @Configuration
 @ConditionalOnWebApplication
 @EnableConfigurationProperties(QuotaProperties.class)
-@ConditionalOnProperty(prefix = "quota", name = { "enable"}, matchIfMissing = false)
+@ConditionalOnProperty(prefix = "quota", name = {"enable"}, matchIfMissing = false)
 public class QuotaAutoConfiguration {
-	
-	@Bean
-	HealthIndicator quotaHealthIndicator() {
-		return new QuotaHealthIndicator(); 
-	}
+
+    @Bean
+    HealthIndicator quotaHealthIndicator() {
+        return new QuotaHealthIndicator();
+    }
 }

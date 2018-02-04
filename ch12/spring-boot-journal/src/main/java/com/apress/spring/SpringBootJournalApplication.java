@@ -8,12 +8,12 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 @SpringBootApplication
 public class SpringBootJournalApplication extends SpringBootServletInitializer {
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(SpringBootJournalApplication.class);
-	}
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(SpringBootJournalApplication.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootJournalApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootJournalApplication.class, args);
+    }
 }

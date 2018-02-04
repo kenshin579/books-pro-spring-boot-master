@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apress.spring.service.SimpleService;
 
 @RestController
-@ImportResource({ "META-INF/spring/services-context.xml" })
+@ImportResource({"META-INF/spring/services-context.xml"})
 @SpringBootApplication
 public class SpringXmlApplication {
 

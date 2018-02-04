@@ -14,11 +14,14 @@ import com.apress.spring.domain.JournalEntry;
 
 @Transactional
 @RepositoryRestResource(collectionResourceRel = "entry", path = "journal")
-public interface JournalRepository extends JpaRepository<JournalEntry, Long> { 
+public interface JournalRepository extends JpaRepository<JournalEntry, Long> {
 
-	List<JournalEntry> findByCreatedAfter(@Param("after") @DateTimeFormat(iso = ISO.DATE) Date date);
-	List<JournalEntry> findByCreatedBetween(@Param("after") @DateTimeFormat(iso = ISO.DATE) Date after,@Param("before") @DateTimeFormat(iso = ISO.DATE) Date before);
-	List<JournalEntry> findByTitleContaining(@Param("word") String word);
-	List<JournalEntry> findBySummaryContaining(@Param("word") String word);
-	
+    List<JournalEntry> findByCreatedAfter(@Param("after") @DateTimeFormat(iso = ISO.DATE) Date date);
+
+    List<JournalEntry> findByCreatedBetween(@Param("after") @DateTimeFormat(iso = ISO.DATE) Date after, @Param("before") @DateTimeFormat(iso = ISO.DATE) Date before);
+
+    List<JournalEntry> findByTitleContaining(@Param("word") String word);
+
+    List<JournalEntry> findBySummaryContaining(@Param("word") String word);
+
 }

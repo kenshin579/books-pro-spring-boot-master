@@ -27,14 +27,14 @@ public class SpringBootJmsV2Application {
     }
     */
 
-    @JmsListener(destination="${myqueue}")
+    @JmsListener(destination = "${myqueue}")
     @SendTo("${myotherqueue}")
     public String simplerConsumer(String message) {
         log.info("간단한 소비기> " + message);
         return message + "와 스프링 메시징을 시작!";
     }
 
-    @JmsListener(destination="${myotherqueue}")
+    @JmsListener(destination = "${myotherqueue}")
     public void anotherSimplerConsumer(String message) {
         log.info("다른 간단한 소비기> " + message);
     }

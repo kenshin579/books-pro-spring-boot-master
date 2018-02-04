@@ -26,7 +26,7 @@ public class SpringBootRabbitmqApplication {
 
     @Bean
     Queue queue() {
-        return new Queue(queue,false);
+        return new Queue(queue, false);
     }
 
     @Autowired

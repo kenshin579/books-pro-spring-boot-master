@@ -13,8 +13,8 @@ public class Producer {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    public void sendTo(String routingkey,String message) {
+    public void sendTo(String routingkey, String message) {
         log.info("전송> ...");
-        this.rabbitTemplate.convertAndSend(routingkey,message);
+        this.rabbitTemplate.convertAndSend(routingkey, message);
     }
 }

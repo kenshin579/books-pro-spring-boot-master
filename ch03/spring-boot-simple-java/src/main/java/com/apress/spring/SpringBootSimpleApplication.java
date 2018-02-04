@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootSimpleApplication {
-//버전 11. CommandLineRunner 및 ApplicationRunner 구현
+    //버전 11. CommandLineRunner 및 ApplicationRunner 구현
 //public class SpringBootSimpleApplication implements CommandLineRunner, ApplicationRunner{
     private static final Logger log = LoggerFactory.getLogger(SpringBootSimpleApplication.class);
 
@@ -40,9 +40,9 @@ public class SpringBootSimpleApplication {
 
 
         //버전 4.
-          //SpringApplication app = new SpringApplication(SpringBootSimpleApplication.class);
-          //app.setBannerMode(Mode.OFF);
-          //app.run(args);
+        //SpringApplication app = new SpringApplication(SpringBootSimpleApplication.class);
+        //app.setBannerMode(Mode.OFF);
+        //app.run(args);
 
 
         //버전 5.
@@ -140,7 +140,7 @@ public class SpringBootSimpleApplication {
         return args -> {
             log.info("## > CommandLineRunner 구현체...");
             log.info("Info 빈에 접근: " + info);
-            for(String arg:args)
+            for (String arg : args)
                 log.info(arg);
         };
     }

@@ -7,14 +7,14 @@ import javax.jms.MessageListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Consumer implements MessageListener{
+public class Consumer implements MessageListener {
     private Logger log = LoggerFactory.getLogger(Consumer.class);
 
     @Override
     public void onMessage(Message message) {
         try {
             log.info("소비기> " + message.getBody(Object.class));
-        }catch (JMSException ex) {
+        } catch (JMSException ex) {
             ex.printStackTrace();
         }
     }

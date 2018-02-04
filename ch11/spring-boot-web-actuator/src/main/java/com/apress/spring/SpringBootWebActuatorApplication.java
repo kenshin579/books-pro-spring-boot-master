@@ -34,7 +34,7 @@ public class SpringBootWebActuatorApplication {
 
     @Bean
     CommandLineRunner findAll(PersonRepository repo) {
-        return args ->{
+        return args -> {
             log.info("> DB에서 조회한 Persons: ");
             repo.findAll().forEach(person -> log.info(person.toString()));
         };

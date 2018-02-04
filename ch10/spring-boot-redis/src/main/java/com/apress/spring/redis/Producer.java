@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Producer {
-	private static final Logger log = LoggerFactory.getLogger(Producer.class);
-	private StringRedisTemplate template;
-	
-	@Autowired
-	public Producer(StringRedisTemplate template) {
-		this.template = template;
-	}
-	
-	public void sendTo(String topic, String message) {
-		log.info("전송> ...");
-		this.template.convertAndSend(topic, message);
-	}
+    private static final Logger log = LoggerFactory.getLogger(Producer.class);
+    private StringRedisTemplate template;
+
+    @Autowired
+    public Producer(StringRedisTemplate template) {
+        this.template = template;
+    }
+
+    public void sendTo(String topic, String message) {
+        log.info("전송> ...");
+        this.template.convertAndSend(topic, message);
+    }
 }

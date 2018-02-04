@@ -13,23 +13,23 @@ import com.apress.spring.redis.Consumer;
 @Configuration
 public class RedisConfig {
 
-	@Value("${topic}")
-	String topic;
-	
-	@Bean
-	RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
-			MessageListenerAdapter listenerAdapter) {
+    @Value("${topic}")
+    String topic;
 
-		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-		container.setConnectionFactory(connectionFactory);
-		container.addMessageListener(listenerAdapter, new PatternTopic(topic));
+    @Bean
+    RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
+                                            MessageListenerAdapter listenerAdapter) {
 
-		return container;
-	}
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(connectionFactory);
+        container.addMessageListener(listenerAdapter, new PatternTopic(topic));
 
-	@Bean
-	MessageListenerAdapter listenerAdapter(Consumer consumer) {
-		return new MessageListenerAdapter(consumer, "messageHandler");
-	}
-	
+        return container;
+    }
+
+    @Bean
+    MessageListenerAdapter listenerAdapter(Consumer consumer) {
+        return new MessageListenerAdapter(consumer, "messageHandler");
+    }
+
 }

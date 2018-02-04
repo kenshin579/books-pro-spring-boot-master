@@ -9,9 +9,9 @@ import org.springframework.security.config.annotation.authentication.configurati
 @EnableGlobalAuthentication
 public class InMemorySecurityConfiguration {
 
-	@Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-            auth.inMemoryAuthentication().withUser("spring").password("boot").roles("USER")
-                            .and().withUser("admin").password("password").roles("USER", "ADMIN");
+        auth.inMemoryAuthentication().withUser("spring").password("boot").roles("USER")
+                .and().withUser("admin").password("password").roles("USER", "ADMIN");
     }
 }

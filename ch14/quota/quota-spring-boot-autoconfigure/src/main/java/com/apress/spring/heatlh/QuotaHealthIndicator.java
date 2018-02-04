@@ -3,7 +3,7 @@ package com.apress.spring.heatlh;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 
-public class QuotaHealthIndicator implements HealthIndicator{
+public class QuotaHealthIndicator implements HealthIndicator {
 
 
     @Override

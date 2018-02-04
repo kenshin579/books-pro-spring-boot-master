@@ -36,7 +36,7 @@ public class SpringBootConfigApplication {
     }
 
     @Component
-    @ConfigurationProperties(prefix="myapp")
+    @ConfigurationProperties(prefix = "myapp")
     public static class MyAppProperties {
         private String name;
         private String description;
@@ -45,18 +45,23 @@ public class SpringBootConfigApplication {
         public String getName() {
             return name;
         }
+
         public void setName(String name) {
             this.name = name;
         }
+
         public String getDescription() {
             return description;
         }
+
         public void setDescription(String description) {
             this.description = description;
         }
+
         public String getServerIp() {
             return serverIp;
         }
+
         public void setServerIp(String serverIp) {
             this.serverIp = serverIp;
         }

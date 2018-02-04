@@ -18,8 +18,9 @@ public class JournalController {
     @Autowired
     JournalRepository repo;
 
-    @RequestMapping(value = "/journal", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public @ResponseBody List<Journal> getJournal() {
+    @RequestMapping(value = "/journal", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public @ResponseBody
+    List<Journal> getJournal() {
         return repo.findAll();
     }
 

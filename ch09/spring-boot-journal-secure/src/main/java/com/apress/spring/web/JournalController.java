@@ -10,24 +10,24 @@ import com.apress.spring.repository.JournalRepository;
 
 @RestController
 public class JournalController {
-	
-	private static final String VIEW_INDEX = "index";
-	private static final String VIEW_LOGIN = "login";
-	
-	
-	@Autowired
-	JournalRepository repo;
-	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ModelAndView index(ModelAndView modelAndView) {
-		modelAndView.setViewName(VIEW_INDEX);
-		modelAndView.addObject("journal", repo.findAll());
-		return modelAndView;
-	}
-	
-	@RequestMapping(value="/login")
-	public ModelAndView login(ModelAndView modelAndView) {
-		modelAndView.setViewName(VIEW_LOGIN);
-		return modelAndView;
-	}
+
+    private static final String VIEW_INDEX = "index";
+    private static final String VIEW_LOGIN = "login";
+
+
+    @Autowired
+    JournalRepository repo;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView index(ModelAndView modelAndView) {
+        modelAndView.setViewName(VIEW_INDEX);
+        modelAndView.addObject("journal", repo.findAll());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/login")
+    public ModelAndView login(ModelAndView modelAndView) {
+        modelAndView.setViewName(VIEW_LOGIN);
+        return modelAndView;
+    }
 }

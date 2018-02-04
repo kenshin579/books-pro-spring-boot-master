@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Consumer {
-	
-	private static final Logger log = LoggerFactory.getLogger(Consumer.class);
-	
-	@RabbitListener(queues="${myqueue}")
-	public void handler(String message) {
-		log.info("소비기> " + message);
-	}
+
+    private static final Logger log = LoggerFactory.getLogger(Consumer.class);
+
+    @RabbitListener(queues = "${myqueue}")
+    public void handler(String message) {
+        log.info("소비기> " + message);
+    }
 }

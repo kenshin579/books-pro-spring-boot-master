@@ -5,27 +5,27 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class ResourceSecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class ResourceSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-           .antMatchers("/").permitAll()
-           .antMatchers("/api/**").authenticated()
+                .antMatchers("/").permitAll()
+                .antMatchers("/api/**").authenticated()
 
-           // 버전 1
-           //.and()
-           //.httpBasic();
+                // 버전 1
+                //.and()
+                //.httpBasic();
 
-           // 버전 2
-           //.and()
-           //.formLogin();
+                // 버전 2
+                //.and()
+                //.formLogin();
 
-           // 버전 3
-           .and()
-           .formLogin().loginPage("/login").permitAll()
-           .and()
-           .logout().permitAll();
+                // 버전 3
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
 
     }
 

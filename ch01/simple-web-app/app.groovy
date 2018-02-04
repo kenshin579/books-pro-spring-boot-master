@@ -1,5 +1,5 @@
 @RestController
-class WebApp{
+class WebApp {
 
     @RequestMapping("/")
     String greetings() {

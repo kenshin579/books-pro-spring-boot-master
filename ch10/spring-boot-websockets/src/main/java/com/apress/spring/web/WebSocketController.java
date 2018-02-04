@@ -11,13 +11,13 @@ import com.apress.spring.websocket.Producer;
 @RestController
 public class WebSocketController {
 
-	@Autowired
-	Producer producer;
-	
-	@RequestMapping("/send/{topic}")
-	public String sender(@PathVariable String topic, @RequestParam String message) {
-		producer.sendMessageTo(topic, message);
-		return "오케바리";
-	}
-	
+    @Autowired
+    Producer producer;
+
+    @RequestMapping("/send/{topic}")
+    public String sender(@PathVariable String topic, @RequestParam String message) {
+        producer.sendMessageTo(topic, message);
+        return "오케바리";
+    }
+
 }

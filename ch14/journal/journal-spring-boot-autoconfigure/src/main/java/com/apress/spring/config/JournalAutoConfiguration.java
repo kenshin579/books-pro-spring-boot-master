@@ -32,69 +32,69 @@ import com.apress.spring.repository.JournalRepository;
 @ConditionalOnWebApplication
 @ConditionalOnClass(JournalRepository.class)
 @EnableConfigurationProperties(JournalProperties.class)
-@ConditionalOnProperty(prefix = "journal", name = { "context-path", "banner" }, matchIfMissing = true)
+@ConditionalOnProperty(prefix = "journal", name = {"context-path", "banner"}, matchIfMissing = true)
 public class JournalAutoConfiguration extends RepositoryRestMvcConfiguration {
-	private final String API_PATH = "/api";
-	private final String BANNER = "/META-INF/banner/journal.txt";
+    private final String API_PATH = "/api";
+    private final String BANNER = "/META-INF/banner/journal.txt";
 
-	@Autowired
-	JournalProperties journal;
+    @Autowired
+    JournalProperties journal;
 
-	@Autowired
-	Environment environment;
+    @Autowired
+    Environment environment;
 
-	@Bean
-	InitializingBean simple() {
-		return () -> {
-			Banner banner = null;
-			ResourceLoader resourceLoader = new DefaultResourceLoader(ClassUtils.getDefaultClassLoader());
-			Resource resource = resourceLoader.getResource(BANNER);
+    @Bean
+    InitializingBean simple() {
+        return () -> {
+            Banner banner = null;
+            ResourceLoader resourceLoader = new DefaultResourceLoader(ClassUtils.getDefaultClassLoader());
+            Resource resource = resourceLoader.getResource(BANNER);
 
-			if (null == journal.getBanner()) {
-				banner = new ResourceBanner(resource);
-			} else {
-				Resource _resource = resourceLoader.getResource(journal.getBanner());
-				if (resource.exists()) {
-					banner = new ResourceBanner(_resource);
-				}
-			}
-			banner.printBanner(environment, environment.getClass(), System.out);
-		};
-	}
+            if (null == journal.getBanner()) {
+                banner = new ResourceBanner(resource);
+            } else {
+                Resource _resource = resourceLoader.getResource(journal.getBanner());
+                if (resource.exists()) {
+                    banner = new ResourceBanner(_resource);
+                }
+            }
+            banner.printBanner(environment, environment.getClass(), System.out);
+        };
+    }
 
-	@Override
-	protected void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-		if (null == journal.getApiPath())
-			config.setBasePath(API_PATH);
-		else
-			config.setBasePath(journal.getApiPath());
-	}
+    @Override
+    protected void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+        if (null == journal.getApiPath())
+            config.setBasePath(API_PATH);
+        else
+            config.setBasePath(journal.getApiPath());
+    }
 
-	@Autowired
-	JournalRepository repo;
+    @Autowired
+    JournalRepository repo;
 
-	@Bean
-	AbstractController journalController() {
-		return new AbstractController() {
-			@Override
-			protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
-					throws Exception {
-				ModelAndView model = new ModelAndView();
-				model.setViewName("journal");
-				model.addObject("journal", repo.findAll());
-				return model;
-			}
-		};
-	}
+    @Bean
+    AbstractController journalController() {
+        return new AbstractController() {
+            @Override
+            protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response)
+                    throws Exception {
+                ModelAndView model = new ModelAndView();
+                model.setViewName("journal");
+                model.addObject("journal", repo.findAll());
+                return model;
+            }
+        };
+    }
 
-	@Bean
-	public SimpleUrlHandlerMapping urlHandler() {
-		SimpleUrlHandlerMapping handler = new SimpleUrlHandlerMapping();
-		handler.setOrder(Integer.MAX_VALUE - 2);
-		Properties mappings = new Properties();
-		mappings.put(journal.getContextPath(), "journalController");
-		handler.setMappings(mappings);
-		return handler;
-	}
+    @Bean
+    public SimpleUrlHandlerMapping urlHandler() {
+        SimpleUrlHandlerMapping handler = new SimpleUrlHandlerMapping();
+        handler.setOrder(Integer.MAX_VALUE - 2);
+        Properties mappings = new Properties();
+        mappings.put(journal.getContextPath(), "journalController");
+        handler.setMappings(mappings);
+        return handler;
+    }
 
 }

@@ -14,19 +14,19 @@ import com.apress.spring.config.JournalProperties;
 @RestController
 public class SpringBootCalendarApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCalendarApplication.class, args);
-	}
-	
-	private static final String VIEW_INDEX = "index";
-	
-	@Autowired
-	JournalProperties journal;
-	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ModelAndView index(ModelAndView modelAndView) {
-		modelAndView.setViewName(VIEW_INDEX);
-		modelAndView.addObject("journal", journal);
-		return modelAndView;
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootCalendarApplication.class, args);
+    }
+
+    private static final String VIEW_INDEX = "index";
+
+    @Autowired
+    JournalProperties journal;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView index(ModelAndView modelAndView) {
+        modelAndView.setViewName(VIEW_INDEX);
+        modelAndView.addObject("journal", journal);
+        return modelAndView;
+    }
 }

@@ -1,5 +1,4 @@
-
-class MyTest{
+class MyTest {
 
     @Test
     void simple() {

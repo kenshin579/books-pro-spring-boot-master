@@ -32,7 +32,6 @@ import org.springframework.web.context.WebApplicationContext;
 import com.apress.spring.domain.JournalEntry;
 
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SprintBootWebApplication.class)
 @WebAppConfiguration
@@ -65,26 +64,26 @@ public class SprintBootWebApplicationTests {
     @Test
     public void getAll() throws Exception {
         mockMvc.perform(get("/journal/all"))
-        .andExpect(status().isOk())
-        .andExpect(content().contentType(contentType))
-        .andExpect(jsonPath("$",iterableWithSize(5)))
-        .andExpect(jsonPath("$[0]['title']",containsString(SPRING_BOOT_MATCH)));
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$", iterableWithSize(5)))
+                .andExpect(jsonPath("$[0]['title']", containsString(SPRING_BOOT_MATCH)));
     }
 
     @Test
     public void findByTitle() throws Exception {
         mockMvc.perform(get("/journal/findBy/title/" + CLOUD_MATCH))
-        .andExpect(status().isOk())
-        .andExpect(content().contentType(contentType))
-        .andExpect(jsonPath("$",iterableWithSize(1)))
-        .andExpect(jsonPath("$[0]['title']",containsString(CLOUD_MATCH)));
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$", iterableWithSize(1)))
+                .andExpect(jsonPath("$[0]['title']", containsString(CLOUD_MATCH)));
     }
 
     @Test
     public void add() throws Exception {
         mockMvc.perform(post("/journal")
-        .content(this.toJsonString(new JournalEntry("스프링 부트 테스트","스프링 부트 단위 테스트를 생성했다","05/09/2016")))
-        .contentType(contentType)).andExpect(status().isOk());
+                .content(this.toJsonString(new JournalEntry("스프링 부트 테스트", "스프링 부트 단위 테스트를 생성했다", "05/09/2016")))
+                .contentType(contentType)).andExpect(status().isOk());
     }
 
 

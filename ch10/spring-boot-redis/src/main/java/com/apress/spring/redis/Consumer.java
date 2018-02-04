@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Consumer {
-	private static final Logger log = LoggerFactory.getLogger(Consumer.class);
-	
-	public void messageHandler(String message) {
+    private static final Logger log = LoggerFactory.getLogger(Consumer.class);
+
+    public void messageHandler(String message) {
         log.info("소비기> " + message);
     }
 }
