@@ -14,12 +14,12 @@ public class ResourceSecurityConfiguration extends WebSecurityConfigurerAdapter 
                 .antMatchers("/api/**").authenticated()
 
                 // 버전 1
-                //.and()
-                //.httpBasic();
+//                .and()
+//                .httpBasic();
 
                 // 버전 2
-                //.and()
-                //.formLogin();
+//                .and()
+//                .formLogin();
 
                 // 버전 3
                 .and()

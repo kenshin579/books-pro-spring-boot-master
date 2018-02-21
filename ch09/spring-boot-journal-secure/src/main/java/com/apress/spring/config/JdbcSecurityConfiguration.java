@@ -1,10 +1,9 @@
 package com.apress.spring.config;
 
-import java.sql.ResultSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,13 +13,17 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.sql.ResultSet;
+
 @Configuration
 @EnableGlobalAuthentication
+@Profile("database")
 public class JdbcSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 
 
     @Bean
     public UserDetailsService userDetailsService(JdbcTemplate jdbcTemplate) {
+        System.out.println("[FRANK] JdbcSecurityConfiguration.userDetailsService");
         RowMapper<User> userRowMapper = (ResultSet rs, int i) ->
                 new User(
                         rs.getString("ACCOUNT_NAME"),
@@ -31,7 +34,7 @@ public class JdbcSecurityConfiguration extends GlobalAuthenticationConfigurerAda
                         rs.getBoolean("ENABLED"),
                         AuthorityUtils.createAuthorityList("ROLE_USER", "ROLE_ADMIN"));
         return username ->
-                jdbcTemplate.queryForObject("SELECT * from ACCOUNT where ACCOUNT_NAME = ?",
+                jdbcTemplate.queryForObject("SELECT * FROM ACCOUNT WHERE ACCOUNT_NAME = ?",
                         userRowMapper, username);
     }
 
