@@ -39,13 +39,13 @@ public class SpringBootJmsV2Application {
         log.info("다른 간단한 소비기> " + message);
     }
 
-    @Value("${myqueue}")
-    String queue;
+        @Value("${myqueue}")
+        String queue;
 
     @Bean
     CommandLineRunner start(JmsTemplate template) {
         return args -> {
-            log.info("전송> ...");
+            log.info("전송> ... queue: {}", queue);
             template.convertAndSend(queue, "스프링 부트");
         };
     }

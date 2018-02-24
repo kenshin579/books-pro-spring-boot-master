@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+//todo: 아래 annotation은 어떤 역할을 하나? 그리고 @Autowired와 어떤 관계가 있나?
 @Component
 public class Producer {
     private static final Logger log = LoggerFactory.getLogger(Producer.class);

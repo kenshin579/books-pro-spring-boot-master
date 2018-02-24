@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+//todo: 아래 annotation은 어떤 역할을 하나?
 @Component
 public class Consumer {
 

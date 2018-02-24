@@ -17,6 +17,12 @@
     <module>ch08/spring-boot-journal</module>
     <module>ch09/spring-boot-journal-oauth</module>
     <module>ch09/spring-boot-journal-secure</module>
+    <module>ch10/spring-boot-jms</module>
+    <module>ch10/spring-boot-jms-v2</module>
+    <module>ch10/spring-boot-rabbitmq</module>
+    <module>ch10/spring-boot-redis</module>
+    <module>ch10/spring-boot-websockets</module>
+    <module>appendix/simple-bean-autowired</module>
   </modules>
 </project>
 
