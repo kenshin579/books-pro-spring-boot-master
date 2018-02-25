@@ -105,11 +105,10 @@
             </plugin>
 
             <!-- Docker Integration -->
-            <!--
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.1</version>
+                <version>1.0.0</version>
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/resources/docker</dockerDirectory>
@@ -122,12 +121,11 @@
                     </resources>
                 </configuration>
             </plugin>
-            -->
 
         </plugins>
 
         <!-- Final Name -->
-        <!-- <finalName>journal</finalName> -->
+         <finalName>journal</finalName>
     </build>
 
 
