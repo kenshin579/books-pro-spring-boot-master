@@ -22,6 +22,8 @@
     <module>ch10/spring-boot-rabbitmq</module>
     <module>ch10/spring-boot-redis</module>
     <module>ch10/spring-boot-websockets</module>
+    <module>ch11/spring-boot-actuator</module>
+    <module>ch11/spring-boot-web-actuator</module>
     <module>appendix/simple-bean-autowired</module>
   </modules>
 </project>
