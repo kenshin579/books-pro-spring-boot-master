@@ -25,7 +25,8 @@
     <module>ch11/spring-boot-actuator</module>
     <module>ch11/spring-boot-web-actuator</module>
     <module>ch12/spring-boot-journal</module>
-    <module>appendix/simple-bean-autowired</module>
+    <module>ch13/spring-boot-jounral-cloud</module>
+    <!--<module>appendix/simple-bean-autowired</module>-->
   </modules>
 </project>
 
