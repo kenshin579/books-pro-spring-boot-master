@@ -1,11 +1,10 @@
 package com.apress.spring.heatlh;
 
+import com.apress.spring.repository.JournalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.stereotype.Component;
-
-import com.apress.spring.repository.JournalRepository;
 
 @Component
 public class QuotaHealthIndicator implements HealthIndicator {
@@ -21,7 +20,12 @@ public class QuotaHealthIndicator implements HealthIndicator {
         if (size <= QUOTA_MAX_SIZE)
             return Health.up().withDetail("quota.entries", size).build();
         else
-            return Health.down().withDetail("quota.entries", size).withException(new QuotaException("할당량 초과. 최대 할당량: " + QUOTA_MAX_SIZE + ". 할당량 정책은 관리자에게 문의하세요.")).build();
+            return Health
+                    .down()
+                    .withDetail("quota.entries", size)
+                    .withException(new QuotaException("할당량 초과. 최대 할당량: " +
+                            QUOTA_MAX_SIZE + ". 할당량 정책은 관리자에게 문의하세요."))
+                    .build();
     }
 
 

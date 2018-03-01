@@ -10,6 +10,8 @@
   <modules>
     <module>ch01/simple-web-app-java</module>
     <module>ch02/spring-boot-journal</module>
+    <module>ch03/spring-boot-simple-java</module>
+    <module>ch03/spring-boot-config-java</module>
     <module>ch07/simple-jdbc-app</module>
     <module>ch07/simple-jpa-app</module>
     <module>ch07/simple-jpa-app-v2</module>
@@ -26,6 +28,8 @@
     <module>ch11/spring-boot-web-actuator</module>
     <module>ch12/spring-boot-journal</module>
     <module>ch13/spring-boot-jounral-cloud</module>
+    <module>ch14/calendar</module>
+    <module>ch14/journal</module>
     <!--<module>appendix/simple-bean-autowired</module>-->
   </modules>
 </project>
